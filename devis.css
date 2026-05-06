@@ -1,0 +1,213 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      /* Dégradé vert profond → noir (vert & noir dominant) */
+      background: radial-gradient(circle at 10% 30%, #1b4d1b, #030303);
+      background-attachment: fixed;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      max-width: 520px;
+      width: 100%;
+      background: #FFFDF0;        /* fond crème / jaune très doux (base jaune poussin) */
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 220, 100, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    /* En-tête : noir + jaune poussin */
+    .header {
+      background: #000000;        /* noir profond */
+      padding: 22px 20px;
+      text-align: center;
+      border-bottom: 4px solid #F5D742;  /* bande jaune poussin */
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: #FDE16D;            /* jaune poussin lumineux */
+      text-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    }
+
+    .header p {
+      font-size: 13px;
+      margin-top: 6px;
+      color: #e0e0b0;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .form-body {
+      padding: 30px 28px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-weight: 700;
+      font-size: 14px;
+      color: #1f2f1a;   /* vert foncé / noir subtil */
+      letter-spacing: 0.3px;
+    }
+
+    input, select {
+      padding: 12px 16px;
+      border: 2px solid #E6E0C0;
+      border-radius: 28px;
+      font-size: 15px;
+      background-color: white;
+      transition: all 0.2s;
+      font-family: inherit;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: #F5D742;
+      box-shadow: 0 0 0 3px rgba(245, 215, 66, 0.4);
+      background-color: #FFFFF2;
+    }
+
+    /* Bouton principal : jaune poussin + vert + noir */
+    button {
+      background: linear-gradient(105deg, #F9E45B, #2C7A2C);
+      border: none;
+      color: #0A1F0A;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 14px 16px;
+      border-radius: 50px;
+      width: 100%;
+      margin-top: 12px;
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+      letter-spacing: 0.5px;
+    }
+
+    button:hover {
+      background: linear-gradient(105deg, #2C7A2C, #F9E45B);
+      transform: scale(0.98);
+      color: #000000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    button:disabled {
+      opacity: 0.65;
+      transform: scale(1);
+      cursor: not-allowed;
+      filter: grayscale(0.05);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      margin-top: 22px;
+      color: #4a4d35;
+      font-weight: 500;
+      border-top: 1px solid #EBE3C2;
+      padding-top: 16px;
+    }
+
+    /* Toast personnalisé vert/noir/jaune */
+    .toast {
+      position: fixed;
+      bottom: 25px;
+      left: 20px;
+      right: 20px;
+      background: #226622;   /* vert intense */
+      color: #FFFBE6;
+      text-align: center;
+      padding: 14px;
+      border-radius: 50px;
+      display: none;
+      z-index: 1000;
+      font-weight: bold;
+      backdrop-filter: blur(4px);
+      border-left: 8px solid #F9E45B;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      font-size: 15px;
+    }
+
+    .toast.show {
+      display: block;
+      animation: fadeSlideUp 0.35s ease;
+    }
+
+    /* Toast erreur : noir + jaune poussin */
+    .toast.error-toast {
+      background: #1a1a1a;
+      border-left-color: #F9E45B;
+      color: #FDE16D;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Groupe visiteurs (église) */
+    #visitorGroup {
+      background: #FFF9E8;
+      padding: 8px 12px;
+      border-radius: 30px;
+      margin-top: 4px;
+      transition: all 0.2s;
+    }
+
+    /* Petit rappel graphique */
+    .form-group select {
+      background-color: #FFFFF0;
+    }
+
+    /* Adaptations mobiles */
+    @media (max-width: 550px) {
+      .card {
+        border-radius: 32px;
+      }
+      .form-body {
+        padding: 22px 20px;
+      }
+      button {
+        padding: 13px;
+      }
+    }
+
+    /* accent noir/vert pour le placeholder */
+    ::placeholder {
+      color: #a0a07a;
+      opacity: 0.7;
+    }
+
+    .header h1::before {
+      content: "🌿 ";
+      font-size: 0.9em;
+    }
+
+    .header h1::after {
+      content: " 🐤";
+      font-size: 0.9em;
+    }
