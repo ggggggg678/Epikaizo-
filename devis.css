@@ -1,4 +1,4 @@
-* {
+ * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -24,7 +24,6 @@
       border-radius: 40px;
       overflow-x: hidden;
       box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 220, 100, 0.3);
-      transition: transform 0.2s ease;
     }
 
     .header {
@@ -37,7 +36,6 @@
     .header h1 {
       font-size: 28px;
       font-weight: 800;
-      letter-spacing: -0.3px;
       color: #FDE16D;
       text-shadow: 0 2px 3px rgba(0,0,0,0.2);
       word-break: break-word;
@@ -57,8 +55,6 @@
       font-size: 13px;
       margin-top: 6px;
       color: #e0e0b0;
-      font-weight: 500;
-      opacity: 0.9;
     }
 
     .form-body {
@@ -76,7 +72,6 @@
       font-weight: 700;
       font-size: 14px;
       color: #1f2f1a;
-      letter-spacing: 0.3px;
     }
 
     input, select {
@@ -84,18 +79,15 @@
       border: 2px solid #E6E0C0;
       border-radius: 28px;
       font-size: 15px;
-      background-color: white;
-      transition: all 0.2s;
-      font-family: inherit;
-      outline: none;
+      background: white;
       width: 100%;
       max-width: 100%;
+      outline: none;
     }
 
     input:focus, select:focus {
       border-color: #F5D742;
       box-shadow: 0 0 0 3px rgba(245, 215, 66, 0.4);
-      background-color: #FFFFF2;
     }
 
     button {
@@ -109,23 +101,13 @@
       width: 100%;
       margin-top: 12px;
       cursor: pointer;
-      transition: all 0.25s;
+      transition: 0.25s;
       box-shadow: 0 5px 12px rgba(0,0,0,0.2);
-      letter-spacing: 0.5px;
-    }
-
-    button:hover {
-      background: linear-gradient(105deg, #2C7A2C, #F9E45B);
-      transform: scale(0.98);
-      color: #000000;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
 
     button:disabled {
       opacity: 0.65;
-      transform: scale(1);
       cursor: not-allowed;
-      filter: grayscale(0.05);
     }
 
     footer {
@@ -133,7 +115,6 @@
       font-size: 11px;
       margin-top: 22px;
       color: #4a4d35;
-      font-weight: 500;
       border-top: 1px solid #EBE3C2;
       padding-top: 16px;
     }
@@ -151,10 +132,7 @@
       display: none;
       z-index: 1000;
       font-weight: bold;
-      backdrop-filter: blur(4px);
       border-left: 8px solid #F9E45B;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-      font-size: 15px;
       max-width: calc(100% - 40px);
       margin: 0 auto;
     }
@@ -166,7 +144,6 @@
 
     .toast.error-toast {
       background: #1a1a1a;
-      border-left-color: #F9E45B;
       color: #FDE16D;
     }
 
@@ -185,37 +162,11 @@
       background: #FFF9E8;
       padding: 8px 12px;
       border-radius: 30px;
-      margin-top: 4px;
-      transition: all 0.2s;
-    }
-
-    .form-group select {
-      background-color: #FFFFF0;
     }
 
     @media (max-width: 550px) {
-      body {
-        padding: 12px;
-      }
-      .card {
-        border-radius: 32px;
-      }
-      .form-body {
-        padding: 22px 20px;
-      }
-      button {
-        padding: 13px;
-      }
-      .header h1 {
-        font-size: 24px;
-      }
-      input, select {
-        font-size: 16px;
-        padding: 12px 14px;
-      }
+      body { padding: 12px; }
+      .form-body { padding: 22px 20px; }
+      .header h1 { font-size: 24px; }
+      input, select { font-size: 16px; }
     }
-
-    ::placeholder {
-      color: #a0a07a;
-      opacity: 0.7;
-      }
