@@ -5,7 +5,6 @@
     }
 
     body {
-      /* Dégradé vert profond → noir (vert & noir dominant) */
       background: radial-gradient(circle at 10% 30%, #1b4d1b, #030303);
       background-attachment: fixed;
       font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
@@ -14,32 +13,44 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow-x: hidden;
+      width: 100%;
     }
 
     .card {
       max-width: 520px;
       width: 100%;
-      background: #FFFDF0;        /* fond crème / jaune très doux (base jaune poussin) */
+      background: #FFFDF0;
       border-radius: 40px;
-      overflow: hidden;
+      overflow-x: hidden;
       box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 220, 100, 0.3);
       transition: transform 0.2s ease;
     }
 
-    /* En-tête : noir + jaune poussin */
     .header {
-      background: #000000;        /* noir profond */
+      background: #000000;
       padding: 22px 20px;
       text-align: center;
-      border-bottom: 4px solid #F5D742;  /* bande jaune poussin */
+      border-bottom: 4px solid #F5D742;
     }
 
     .header h1 {
       font-size: 28px;
       font-weight: 800;
       letter-spacing: -0.3px;
-      color: #FDE16D;            /* jaune poussin lumineux */
+      color: #FDE16D;
       text-shadow: 0 2px 3px rgba(0,0,0,0.2);
+      word-break: break-word;
+      white-space: normal;
+    }
+
+    .header h1::before {
+      content: "🌿 ";
+      font-size: 0.9em;
+    }
+    .header h1::after {
+      content: " 🐤";
+      font-size: 0.9em;
     }
 
     .header p {
@@ -64,7 +75,7 @@
     label {
       font-weight: 700;
       font-size: 14px;
-      color: #1f2f1a;   /* vert foncé / noir subtil */
+      color: #1f2f1a;
       letter-spacing: 0.3px;
     }
 
@@ -77,6 +88,8 @@
       transition: all 0.2s;
       font-family: inherit;
       outline: none;
+      width: 100%;
+      max-width: 100%;
     }
 
     input:focus, select:focus {
@@ -85,7 +98,6 @@
       background-color: #FFFFF2;
     }
 
-    /* Bouton principal : jaune poussin + vert + noir */
     button {
       background: linear-gradient(105deg, #F9E45B, #2C7A2C);
       border: none;
@@ -126,13 +138,12 @@
       padding-top: 16px;
     }
 
-    /* Toast personnalisé vert/noir/jaune */
     .toast {
       position: fixed;
       bottom: 25px;
       left: 20px;
       right: 20px;
-      background: #226622;   /* vert intense */
+      background: #226622;
       color: #FFFBE6;
       text-align: center;
       padding: 14px;
@@ -144,6 +155,8 @@
       border-left: 8px solid #F9E45B;
       box-shadow: 0 6px 18px rgba(0,0,0,0.3);
       font-size: 15px;
+      max-width: calc(100% - 40px);
+      margin: 0 auto;
     }
 
     .toast.show {
@@ -151,7 +164,6 @@
       animation: fadeSlideUp 0.35s ease;
     }
 
-    /* Toast erreur : noir + jaune poussin */
     .toast.error-toast {
       background: #1a1a1a;
       border-left-color: #F9E45B;
@@ -169,7 +181,6 @@
       }
     }
 
-    /* Groupe visiteurs (église) */
     #visitorGroup {
       background: #FFF9E8;
       padding: 8px 12px;
@@ -178,13 +189,14 @@
       transition: all 0.2s;
     }
 
-    /* Petit rappel graphique */
     .form-group select {
       background-color: #FFFFF0;
     }
 
-    /* Adaptations mobiles */
     @media (max-width: 550px) {
+      body {
+        padding: 12px;
+      }
       .card {
         border-radius: 32px;
       }
@@ -194,20 +206,16 @@
       button {
         padding: 13px;
       }
+      .header h1 {
+        font-size: 24px;
+      }
+      input, select {
+        font-size: 16px;
+        padding: 12px 14px;
+      }
     }
 
-    /* accent noir/vert pour le placeholder */
     ::placeholder {
       color: #a0a07a;
       opacity: 0.7;
-    }
-
-    .header h1::before {
-      content: "🌿 ";
-      font-size: 0.9em;
-    }
-
-    .header h1::after {
-      content: " 🐤";
-      font-size: 0.9em;
-    }
+      }

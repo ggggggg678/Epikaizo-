@@ -49,37 +49,32 @@
 <div id="toast" class="toast">✅ Enregistrement réussi</div>
 
 <script>
-  // -------- CONFIGURATION FIREBASE (inchangée, seule la charte graphique évolue) --------
   const firebaseConfig = {
     apiKey: "AIzaSyBKycoZ7BETwGZdWfecSdE-LhW6S2QteTs",
-  authDomain: "church-epikaizo.firebaseapp.com",
-  databaseURL: "https://church-epikaizo-default-rtdb.firebaseio.com",
-  projectId: "church-epikaizo",
-  storageBucket: "church-epikaizo.firebasestorage.app",
-  messagingSenderId: "31324831614",
-  appId: "1:31324831614:web:1f02294643389f5b6f7d2f",
-  measurementId: "G-VZHBPQWZ3V"
+    authDomain: "church-epikaizo.firebaseapp.com",
+    databaseURL: "https://church-epikaizo-default-rtdb.firebaseio.com",
+    projectId: "church-epikaizo",
+    storageBucket: "church-epikaizo.firebasestorage.app",
+    messagingSenderId: "31324831614",
+    appId: "1:31324831614:web:1f02294643389f5b6f7d2f",
+    measurementId: "G-VZHBPQWZ3V"
   };
-  // -----------------------------------------------------------------------------------
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
 
-  // Gestion affichage champ église pour visiteur
   document.getElementById('statut').addEventListener('change', function(e) {
     const visitorDiv = document.getElementById('visitorGroup');
     visitorDiv.style.display = e.target.value === 'visitor' ? 'block' : 'none';
   });
 
-  // Toast stylé avec support erreur / succès (vert & jaune poussin / noir)
   function showToast(msg, type = 'success') {
     const toastEl = document.getElementById('toast');
     toastEl.textContent = msg;
-    // Supprimer classes précédentes pour éviter conflit
     toastEl.classList.remove('error-toast');
     if (type === 'error') {
       toastEl.classList.add('error-toast');
     } else {
-      toastEl.style.background = '#226622';      // vert profond
+      toastEl.style.background = '#226622';
       toastEl.style.borderLeftColor = '#F9E45B';
       toastEl.style.color = '#FFFBE6';
     }
@@ -87,7 +82,6 @@
     setTimeout(() => toastEl.classList.remove('show'), 3200);
   }
 
-  // Enregistrement présence -> Firestore
   document.getElementById('btnEnregistrer').onclick = async () => {
     const nom = document.getElementById('nom').value.trim();
     const prenom = document.getElementById('prenom').value.trim();
@@ -122,7 +116,6 @@
     try {
       await db.collection('presences').add(data);
       showToast(`✅ ${prenom} ${nom} inscrit(e) avec succès !`);
-      // Réinitialisation propre du formulaire
       document.getElementById('nom').value = '';
       document.getElementById('prenom').value = '';
       document.getElementById('lieu').value = '';
